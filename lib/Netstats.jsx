@@ -32,12 +32,10 @@ export const updateState = event => {
 const render = ({ output }) => {
   if (typeof output === "undefined") return null;
   return (
-    <div>
+    <div style={{fontSize:10, display:"block"}}>
       <span style={output.kbin > 1000 ? { color: styles.colors.red } : null}>
-        􀄩 {output.mbin}
-        mb
-      </span>
-      &nbsp;&nbsp;
+        􀄩 {output.mbin}mb
+      </span>      
       <span style={output.kbout > 1000 ? { color: styles.colors.red } : null}>
         􀄨 {output.mbout}
         mb

@@ -137,31 +137,60 @@ WIFI_SSID=$(networksetup -getairportnetwork en0 | cut -c 24-)
 
 DND=$(defaults -currentHost read com.apple.notificationcenterui doNotDisturb)
 
+STORAGE_USED=$(df -h | awk 'NR==4 {print $3}'| cut -c 1-3) 
+STORAGE_FREE=$(df -h | awk 'NR==4 {print $4}' | cut -c 1-3) 
+STORAGE_TOTAL=$(df -h | awk 'NR==4 {print $2}'| cut -c 1-3)
+
+FREE_BLOCKS=$(vm_stat | grep free | awk '{ print $3 }' | sed 's/\.//')
+INACTIVE_BLOCKS=$(vm_stat | grep inactive | awk '{ print $3 }' | sed 's/\.//')
+SPECULATIVE_BLOCKS=$(vm_stat | grep speculative | awk '{ print $3 }' | sed 's/\.//')
+
+MEMORY_FREE=$((($FREE_BLOCKS+$SPECULATIVE_BLOCKS)*4096/1048576))
+MEMORY_USED=$(($INACTIVE_BLOCKS*4096/1048576))
+MEMORY_TOTAL=$(($MEMORY_FREE+$MEMORY_USED))
+
+MUTE_STATUS=$(osascript -e 'get volume settings' | awk '{print $8}')
+
+UP_TIME=$(uptime | awk '{print $3}')
+  
+
 echo $(cat <<-EOF
 {
-    "datetime": {
-        "time": "$TIME",
-        "date": "$DATE"
-    },
-    "battery": {
-        "percentage": $BATTERY_PERCENTAGE,
-        "charging": $BATTERY_CHARGING,
-		"remaining": "$BATTERY_REMAINING"
-    },
-    "cpu": {
-        "loadAverage": $LOAD_AVERAGE
-    },
-    "wifi": {
-		"status": "$WIFI_STATUS",
-        "ssid": "$WIFI_SSID"
-    },
-	"netstats": {
-		"kbin": "$kbin",
-		"kbout": "$kbout",
-		"mbin": "$mbin",
-		"mbout": "$mbout"
-	},
-    "dnd": $DND
+  "datetime": {
+    "time": "$TIME",
+    "date": "$DATE"
+  },
+  "battery": {
+    "percentage": "$BATTERY_PERCENTAGE",
+    "charging": "$BATTERY_CHARGING",
+    "remaining": "$BATTERY_REMAINING"
+  },
+  "cpu": {
+    "loadAverage": "$LOAD_AVERAGE"
+  },
+  "uptime":"$UP_TIME",
+  "mute":"$MUTE_STATUS",
+  "storage": {
+    "used": "$STORAGE_USED",
+    "free": "$STORAGE_FREE",
+    "total": "$STORAGE_TOTAL"
+  }, 
+  "memory":{
+    "free": "$MEMORY_FREE",
+    "used": "$MEMORY_USED",
+    "total": "$MEMORY_TOTAL"
+  }, 
+  "wifi": {
+    "status": "$WIFI_STATUS",
+    "ssid": "$WIFI_SSID"
+  },
+  "netstats": {
+    "kbin": "$kbin",
+    "kbout": "$kbout",
+    "mbin": "$mbin",
+    "mbout": "$mbout"
+  },
+  "dnd": "$DND"
 }
 EOF
 )

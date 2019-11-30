@@ -9,7 +9,7 @@ const style = {
   height: "20px",
   position: "fixed",
   overflow: "hidden",
-  top: "0px",
+  bottom: "0px",
   right: "0px",
   left: "0px"
 };
@@ -17,7 +17,7 @@ const style = {
 export const refreshFrequency = 1000000;
 
 export const render = ({ output }) => {
-  return <div style={style} />;
+  return <div style={style}></div>;
 };
 
 export default null;

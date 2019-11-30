@@ -4,6 +4,7 @@ const render = ({ output }) => {
   let charging = output.charging;
   let percentage = output.percentage;
   let remainingTime = output.remaining;
+  console.log(charging);
   return (
     <div>
       <div
@@ -12,8 +13,7 @@ const render = ({ output }) => {
             ? { color: styles.colors.red }
             : null
         }
-      >
-        <span>{charging ? "􀋨" : "􀋧"} {percentage}%</span>
+      ><span>{charging==='true' ? "􀋨" : "B"} {percentage}%, {remainingTime}</span>        
       </div>
     </div>
   );

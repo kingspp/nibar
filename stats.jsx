@@ -4,9 +4,14 @@ import Cpu from "./lib/Cpu.jsx";
 import Wifi from "./lib/Wifi.jsx";
 import Dnd from "./lib/Dnd.jsx";
 import Netstats from "./lib/Netstats.jsx";
+import Storage from "./lib/Storage.jsx";
+import Memory from "./lib/Memory.jsx";
+import UPTime from "./lib/UPTime.jsx";
+import Mute from "./lib/Mute.jsx";
 import Error from "./lib/Error.jsx";
 import parse from "./lib/parse.jsx";
 import styles from "./lib/styles.jsx";
+
 
 const style = {
   display: "grid",
@@ -16,7 +21,7 @@ const style = {
   position: "fixed",
   overflow: "hidden",
   right: "0px",
-  top: "0px",
+  bottom: "0px",
   color: styles.colors.dim,
   fontFamily: styles.fontFamily,
   fontSize: styles.fontSize,
@@ -37,16 +42,22 @@ export const render = ({ output }) => {
       </div>
     );
   }
-  return (
-    <div style={style}>
+  return (  
+    <div style={style}>                
+      <UPTime output={data.uptime} />
+      <Memory output={data.memory} />
+      <Storage output={data.storage} />
       <Netstats output={data.netstats} />
       <Wifi output={data.wifi} />
       <Cpu output={data.cpu} />
       <Battery output={data.battery} />
       <DateTime output={data.datetime} />
       <Dnd output={data.dnd} />
+      <Mute output={data.mute} />
     </div>
   );
 };
+
+
 
 export default null;

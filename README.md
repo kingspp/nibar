@@ -38,6 +38,19 @@ yabai -m signal --add event=space_changed \
     action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"nibar-spaces-secondary-jsx\"'"
 ```
 
+## Features
+1. Volume Status
+2. Clock
+3. Date and Day
+4. Battery % with Remaining Time (Changes during charging)
+5. CPU USage
+6. WiFi AP
+7. Network Usage
+8. HDD Usage
+9. RAM Usage
+10: Up Time
+
+
 ## TODO
 
 - [ ] add support for `visible` (not `focused`) workspaces
