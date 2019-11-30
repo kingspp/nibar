@@ -151,7 +151,7 @@ MEMORY_TOTAL=$(($MEMORY_FREE+$MEMORY_USED))
 
 MUTE_STATUS=$(osascript -e 'get volume settings' | awk '{print $8}')
 
-UP_TIME=$(uptime | awk '{print $3}')
+UP_TIME=$(uptime | awk '{print $3" "$4}')
   
 
 echo $(cat <<-EOF

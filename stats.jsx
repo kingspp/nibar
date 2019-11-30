@@ -38,18 +38,18 @@ export const render = ({ output }) => {
   if (typeof data === "undefined") {
     return (
       <div style={style}>
-        <Error msg="Error: unknown script output" side="right" />
+        <Error msg="Initializing . . ." side="right" />
       </div>
     );
   }
   return (  
     <div style={style}>                
       <UPTime output={data.uptime} />
+      <Cpu output={data.cpu} />
       <Memory output={data.memory} />
       <Storage output={data.storage} />
       <Netstats output={data.netstats} />
-      <Wifi output={data.wifi} />
-      <Cpu output={data.cpu} />
+      <Wifi output={data.wifi} />      
       <Battery output={data.battery} />
       <DateTime output={data.datetime} />
       <Dnd output={data.dnd} />
