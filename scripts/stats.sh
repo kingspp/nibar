@@ -8,6 +8,10 @@ myvar3=`netstat -ibn | grep -e "en0" -m 1 | awk '{print $10}'` # bytes out
 apmyvar1=`netstat -ibn | grep -e "en1" -m 1 | awk '{print $7}'` #  bytes in
 apmyvar3=`netstat -ibn | grep -e "en1" -m 1 | awk '{print $10}'` # bytes out
 
+
+WEATHER_STATUS=$(curl -sS "wttr.in/~Massachusetts+Worcester?format=%c%20+%t+%w&m")
+
+
 #wait one second
 sleep 1
 
@@ -164,6 +168,7 @@ UP_TIME=$(uptime | awk '{print $3" "$4}')
 BLUETOOTH_STATUS=$(/usr/local/Cellar/blueutil/2.5.1/bin/blueutil -p)
 
 
+
 echo $(cat <<-EOF
 {
   "datetime": {
@@ -174,10 +179,11 @@ echo $(cat <<-EOF
     "percentage": "$BATTERY_PERCENTAGE",
     "charging": "$BATTERY_CHARGING",
     "remaining": "$BATTERY_REMAINING"
-  },
+  },  
   "cpu": {
     "loadAverage": "$LOAD_AVERAGE"
   },
+  "weather":"$WEATHER_STATUS",
   "uptime":"$UP_TIME",
   "mute":"$MUTE_STATUS",  
   "vpn":"$VPN_STATUS",

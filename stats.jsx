@@ -9,6 +9,7 @@ import Memory from "./lib/Memory.jsx";
 import UPTime from "./lib/UPTime.jsx";
 import Mute from "./lib/Mute.jsx";
 import VPN from "./lib/VPN.jsx";
+import Weather from "./lib/Weather.jsx";
 import Bluetooth from "./lib/Bluetooth.jsx";
 
 import Error from "./lib/Error.jsx";
@@ -32,7 +33,7 @@ const style = {
   fontWeight: styles.fontWeight
 };
 
-export const refreshFrequency = 10000;
+export const refreshFrequency = 5000;
 
 export const command = "./nibar/scripts/stats.sh";
 
@@ -47,6 +48,7 @@ export const render = ({ output }) => {
   }
   return (  
     <div style={style}>                
+      <Weather output={data.weather} />
       <UPTime output={data.uptime} />
       <Cpu output={data.cpu} />
       <Memory output={data.memory} />

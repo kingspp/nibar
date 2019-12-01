@@ -6,16 +6,17 @@ const render = ({ output }) => {
   let remainingTime = output.remaining;  
   return (
     <div>
-      <div
-        style={
-          percentage < 20 && charging == false
-            ? { color: styles.colors.red }
-            : null
-        }
-      ><span>{charging==='true' ? "􀋨" : "B"} {percentage}%, {remainingTime}</span>        
-      </div>
+    <div
+    style={
+      percentage < 20 && charging == false
+      ? { color: styles.colors.red }
+      : null
+    }
+    ><span>{charging==='true' ? "􀋨" : "B"} {percentage}%, {remainingTime}</span>        
     </div>
-  );
+    </div>
+    );
 };
 
 export default render;
+
