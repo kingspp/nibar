@@ -1,12 +1,11 @@
-# nibar
+# Pbar
 
 Simple [Übersicht](https://github.com/felixhageloh/uebersicht) widget status bar with [yabai](https://github.com/koekeishiya/yabai) support.
 
-Originally forked from https://github.com/ajdnik/powerbar. I made it work with yabai and tweaked the aesthetics to match my preference.
-
+Originally forked from https://github.com/kkga/nibar. 
 ## Screenshot
 
-![img](./ss.png)
+![img](./setup.png)
 
 ## Installation
 
@@ -48,7 +47,7 @@ brew install blueutil
 2. Clock
 3. Date and Day
 4. Battery % with Remaining Time (Changes during charging)
-5. CPU USage
+5. CPU Usage
 6. WiFi AP
 7. Network Usage
 8. HDD Usage
@@ -56,8 +55,14 @@ brew install blueutil
 10. Up Time
 11. VPN Status
 12. Bluetooth Status
+13. Weather Status
+14. Temperature
+15. Wind Speed
+16. DND
 
 
 ## TODO
 
 - [ ] add support for `visible` (not `focused`) workspaces
+- [ ] fix issue with Network Usage
+- [ ] add support for fan throttling
