@@ -38,6 +38,11 @@ yabai -m signal --add event=space_changed \
     action="osascript -e 'tell application \"Übersicht\" to refresh widget id \"nibar-spaces-secondary-jsx\"'"
 ```
 
+## Requirements
+```bash
+brew install blueutil
+```
+
 ## Features
 1. Volume Status
 2. Clock
@@ -48,7 +53,9 @@ yabai -m signal --add event=space_changed \
 7. Network Usage
 8. HDD Usage
 9. RAM Usage
-10: Up Time
+10. Up Time
+11. VPN Status
+12. Bluetooth Status
 
 
 ## TODO

@@ -8,6 +8,9 @@ import Storage from "./lib/Storage.jsx";
 import Memory from "./lib/Memory.jsx";
 import UPTime from "./lib/UPTime.jsx";
 import Mute from "./lib/Mute.jsx";
+import VPN from "./lib/VPN.jsx";
+import Bluetooth from "./lib/Bluetooth.jsx";
+
 import Error from "./lib/Error.jsx";
 import parse from "./lib/parse.jsx";
 import styles from "./lib/styles.jsx";
@@ -52,8 +55,10 @@ export const render = ({ output }) => {
       <Wifi output={data.wifi} />      
       <Battery output={data.battery} />
       <DateTime output={data.datetime} />
+      <Bluetooth output={data.bluetooth} />
       <Dnd output={data.dnd} />
       <Mute output={data.mute} />
+      <VPN output={data.vpn} />
     </div>
   );
 };

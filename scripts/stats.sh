@@ -115,6 +115,12 @@ if ! [ -x "$(command -v networksetup)" ]; then
   exit 1
 fi
 
+# Check if blueutil exists
+# if ! [ -x "$(command -v blueutil)" ]; then
+#   echo "{\"error\":\"blueutil binary not found\"}"
+#   exit 1
+# fi
+
 export LC_TIME="en_US.UTF-8"
 TIME=$(date +"%H:%M")
 DATE=$(date +"%a %d/%m")
@@ -149,10 +155,14 @@ MEMORY_FREE=$((($FREE_BLOCKS+$SPECULATIVE_BLOCKS)*4096/1048576))
 MEMORY_USED=$(($INACTIVE_BLOCKS*4096/1048576))
 MEMORY_TOTAL=$(($MEMORY_FREE+$MEMORY_USED))
 
+VPN_STATUS=$("/Applications/Private Internet Access.app/Contents/MacOS/piactl" get vpnip)
+
 MUTE_STATUS=$(osascript -e 'get volume settings' | awk '{print $8}')
 
 UP_TIME=$(uptime | awk '{print $3" "$4}')
-  
+
+BLUETOOTH_STATUS=$(/usr/local/Cellar/blueutil/2.5.1/bin/blueutil -p)
+
 
 echo $(cat <<-EOF
 {
@@ -169,7 +179,9 @@ echo $(cat <<-EOF
     "loadAverage": "$LOAD_AVERAGE"
   },
   "uptime":"$UP_TIME",
-  "mute":"$MUTE_STATUS",
+  "mute":"$MUTE_STATUS",  
+  "vpn":"$VPN_STATUS",
+  "bluetooth":"$BLUETOOTH_STATUS",
   "storage": {
     "used": "$STORAGE_USED",
     "free": "$STORAGE_FREE",
