@@ -37,11 +37,11 @@ const render = ({ output }) => {
   if (typeof output === "undefined") return null;
   return (
     <div style={{display:"block"}}>
-      <span style={dwl.unit === "mb/s" ? { color: styles.colors.red } : null}>
-        􀄩 {dwl.val}{dwl.unit}
-      </span>      
       <span style={upl.unit === "mb/s" ? { color: styles.colors.red } : null}>
-        􀄨 {upl.val}{upl.unit}
+        􀄨{upl.val}{upl.unit}
+      </span>
+      <span style={dwl.unit === "mb/s" ? { color: styles.colors.red } : null}>
+        􀄩{dwl.val}{dwl.unit}&nbsp;
       </span>
     </div>
   );

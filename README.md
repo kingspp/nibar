@@ -60,10 +60,10 @@ brew install blueutil
 15. Wind Speed
 16. DND
 17. Caffeinate
+18. Disk IO Stats
 
 
 ## TODO
 
 - [ ] add support for `visible` (not `focused`) workspaces
 - [ ] add support for fan throttling
-- [ ] add support for disk io

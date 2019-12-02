@@ -11,9 +11,12 @@ apmyvar3=`netstat -ibn | grep -e "en1" -m 1 | awk '{print $10}'` # bytes out
 
 WEATHER_STATUS=$(curl -sS "wttr.in/~Massachusetts+Worcester?format=%c%20+%t+%w&m")
 
+DISK_STAT_PREV=$(/Library/Frameworks/Python.framework/Versions/3.7/bin/python3 -c 'import psutil;io=psutil.disk_io_counters(nowrap=False);print(f"{io[2]}#{io[3]}")')
 
 #wait one second
 sleep 1
+
+DISK_STAT_NEXT=$(/Library/Frameworks/Python.framework/Versions/3.7/bin/python3 -c 'import psutil;io=psutil.disk_io_counters(nowrap=False);print(f"{io[2]}#{io[3]}")')
 
 # ETHERNET: get the number of bytes in and out one second later
 myvar2=`netstat -ibn | grep -e "en0" -m 1 | awk '{print $7}'` # bytes in again
@@ -210,6 +213,10 @@ echo $(cat <<-EOF
     "ssid": "$WIFI_SSID"
   },
   "netstats": "$kbin#$kbout#$apkbin#$apkbout#$etherip#$airip",
+  "diskstats":{
+  "prev":"$DISK_STAT_PREV",
+  "next":"$DISK_STAT_NEXT"
+  },
   "dnd": "$DND"
 }
 EOF

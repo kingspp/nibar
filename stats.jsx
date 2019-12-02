@@ -12,7 +12,7 @@ import VPN from "./lib/VPN.jsx";
 import Weather from "./lib/Weather.jsx";
 import Caffeinate from "./lib/Caffeinate.jsx";
 import Bluetooth from "./lib/Bluetooth.jsx";
-
+import DiskStats from "./lib/DiskStats.jsx";
 import Error from "./lib/Error.jsx";
 import parse from "./lib/parse.jsx";
 import styles from "./lib/styles.jsx";
@@ -22,13 +22,12 @@ const style = {
   display: "grid",
   padding: "0 12px",
   gridAutoFlow: "column",
-  gridGap: "16px",
+  gridGap: "10px",
   position: "fixed",
   overflow: "hidden",
   right: "0px",
   bottom: "0px",
-    // styles.colors.dim,
-  color: "#FFFFFF",
+  color: styles.colors.dim,
   fontFamily: styles.fontFamily,
   fontSize: styles.fontSize,
   lineHeight: styles.lineHeight,
@@ -56,6 +55,7 @@ export const render = ({ output }) => {
       <Cpu output={data.cpu} />
       <Memory output={data.memory} />
       <Storage output={data.storage} />
+      <DiskStats output={data.diskstats} />
       <Netstats output={data.netstats} />
       <Wifi output={data.wifi} />      
       <Battery output={data.battery} />
