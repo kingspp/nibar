@@ -11,7 +11,7 @@ const render = ({ output }) => {
     style={
       percentage < 20 && charging == "false"
       ? { color: styles.colors.red }
-      : null
+      : charging=="true"?{ color: styles.colors.green }:null
     }
     ><span>{charging==='true' ? "􀋨" : "B"} {percentage}%, {remainingTime}</span>        
     </div>

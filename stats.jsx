@@ -31,7 +31,8 @@ const style = {
   fontFamily: styles.fontFamily,
   fontSize: styles.fontSize,
   lineHeight: styles.lineHeight,
-  fontWeight: styles.fontWeight
+  fontWeight: styles.fontWeight,
+    opacity:0.6
 };
 
 export const refreshFrequency = 5000;
