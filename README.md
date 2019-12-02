@@ -59,6 +59,7 @@ brew install blueutil
 14. Temperature
 15. Wind Speed
 16. DND
+17. Caffeinate
 
 
 ## TODO
