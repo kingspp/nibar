@@ -40,6 +40,8 @@ yabai -m signal --add event=space_changed \
 ## Requirements
 ```bash
 brew install blueutil
+
+pip3 install psutil
 ```
 
 ## Features

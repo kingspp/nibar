@@ -38,7 +38,7 @@ const render = ({ output }) => {
   return (
     <div style={{display:"block"}}>
       <span style={upl.unit === "mb/s" ? { color: styles.colors.red } : null}>
-        􀄨{upl.val}{upl.unit}
+        􀄨{upl.val}{upl.unit}&nbsp;
       </span>
       <span style={dwl.unit === "mb/s" ? { color: styles.colors.red } : null}>
         􀄩{dwl.val}{dwl.unit}&nbsp;

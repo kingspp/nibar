@@ -22,7 +22,6 @@ export const updateState = event => {
     const data = event.output.split("#");
     const dwl = speed(Math.round(data[0]));
     const upl = speed(Math.round(data[1]));
-
     return {
         dwl: `Dwl: ${dwl.val} ${dwl.unit}`,
         upl: `Upl: ${upl.val} ${upl.unit}`
@@ -30,10 +29,8 @@ export const updateState = event => {
 };
 
 const render = ({ output }) => {
-
     const [pread, pwrite] = output['prev'].split("#");
     const [nread, nwrite] = output['next'].split("#");
-    console.log(nread-pread, nwrite-pwrite);
     const dwl = speed((nread-pread)/1e3);
     const upl = speed((nwrite-pwrite)/1e3);
     if (typeof output === "undefined") return null;

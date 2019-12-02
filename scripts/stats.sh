@@ -155,12 +155,15 @@ STORAGE_FREE=$(df -h | awk 'NR==4 {print $4}' | cut -c 1-3)
 STORAGE_TOTAL=$(df -h | awk 'NR==4 {print $2}'| cut -c 1-3)
 
 FREE_BLOCKS=$(vm_stat | grep free | awk '{ print $3 }' | sed 's/\.//')
+ACTIVE_BLOCKS=$(vm_stat | grep "Pages active" | awk '{ print $3 }' | sed 's/\.//')
 INACTIVE_BLOCKS=$(vm_stat | grep inactive | awk '{ print $3 }' | sed 's/\.//')
 SPECULATIVE_BLOCKS=$(vm_stat | grep speculative | awk '{ print $3 }' | sed 's/\.//')
+WIRED_BLOCKS=$(vm_stat | grep wired | awk '{ print $4 }' | sed 's/\.//')
+PURGEABLE_BLOCKS=$(vm_stat | grep purgeable | awk '{ print $3 }' | sed 's/\.//')
 
-MEMORY_FREE=$((($FREE_BLOCKS+$SPECULATIVE_BLOCKS)*4096/1048576))
-MEMORY_USED=$(($INACTIVE_BLOCKS*4096/1048576))
-MEMORY_TOTAL=$(($MEMORY_FREE+$MEMORY_USED))
+MEMORY_FREE=$((($FREE_BLOCKS+$INACTIVE_BLOCKS)*4096/1048576))
+MEMORY_USED=$((($ACTIVE_BLOCKS+$SPECULATIVE_BLOCKS+$WIRED_BLOCKS+$PURGEABLE_BLOCKS)*4096/1048576))
+MEMORY_TOTAL=$((($MEMORY_FREE+$MEMORY_USED)))
 
 VPN_STATUS=$("/Applications/Private Internet Access.app/Contents/MacOS/piactl" get vpnip)
 
@@ -206,8 +209,9 @@ echo $(cat <<-EOF
   "memory":{
     "free": "$MEMORY_FREE",
     "used": "$MEMORY_USED",
-    "total": "$MEMORY_TOTAL"
-  }, 
+    "total": "$MEMORY_TOTAL",
+    "monitor":"$FREE_BLOCKS, $ACTIVE_BLOCKS, $INACTIVE_BLOCKS, $PURGEABLE_BLOCKS, $SPECULATIVE_BLOCKS, $WIRED_BLOCKS"
+  },
   "wifi": {
     "status": "$WIFI_STATUS",
     "ssid": "$WIFI_SSID"
