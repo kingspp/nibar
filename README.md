@@ -65,5 +65,5 @@ brew install blueutil
 ## TODO
 
 - [ ] add support for `visible` (not `focused`) workspaces
-- [ ] fix issue with Network Usage
 - [ ] add support for fan throttling
+- [ ] add support for disk io

@@ -209,12 +209,7 @@ echo $(cat <<-EOF
     "status": "$WIFI_STATUS",
     "ssid": "$WIFI_SSID"
   },
-  "netstats": {
-    "kbin": "$kbin",
-    "kbout": "$kbout",
-    "mbin": "$mbin",
-    "mbout": "$mbout"
-  },
+  "netstats": "$kbin#$kbout#$apkbin#$apkbout#$etherip#$airip",
   "dnd": "$DND"
 }
 EOF

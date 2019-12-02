@@ -30,15 +30,18 @@ export const updateState = event => {
 };
 
 const render = ({ output }) => {
+
+  const data = output.split("#");
+  const dwl = (speed(Math.round(data[0])));
+  const upl = (speed(Math.round(data[1])));
   if (typeof output === "undefined") return null;
   return (
     <div style={{display:"block"}}>
-      <span style={output.kbin > 1000 ? { color: styles.colors.red } : null}>
-        􀄩 {output.mbin}mb
+      <span style={dwl.unit === "mb/s" ? { color: styles.colors.red } : null}>
+        􀄩 {dwl.val}{dwl.unit}
       </span>      
-      <span style={output.kbout > 1000 ? { color: styles.colors.red } : null}>
-        􀄨 {output.mbout}
-        mb
+      <span style={upl.unit === "mb/s" ? { color: styles.colors.red } : null}>
+        􀄨 {upl.val}{upl.unit}
       </span>
     </div>
   );

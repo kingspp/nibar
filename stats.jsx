@@ -27,12 +27,13 @@ const style = {
   overflow: "hidden",
   right: "0px",
   bottom: "0px",
-  color: styles.colors.dim,
+    // styles.colors.dim,
+  color: "#FFFFFF",
   fontFamily: styles.fontFamily,
   fontSize: styles.fontSize,
   lineHeight: styles.lineHeight,
-  fontWeight: styles.fontWeight,
-    opacity:0.6
+  fontWeight: styles.fontWeight
+    // opacity:0.6
 };
 
 export const refreshFrequency = 5000;
