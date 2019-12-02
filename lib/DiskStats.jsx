@@ -2,7 +2,7 @@ import styles from "./styles.jsx";
 
 const speed = type => {
     if (type < 1000) {
-        return { val: type.toString().padStart(3, "0"), unit: "kb/s" };
+        return { val: Math.round(type).toString().padStart(3, "0"), unit: "kb/s" };
     } else if (type > 1000 && type < 10000) {
         return {
             val: parseFloat(Math.round((type / 1000) * 100) / 100).toFixed(1),

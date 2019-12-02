@@ -144,6 +144,7 @@ elif [ "$BATTERY_STATUS" == "AC" ]; then
 fi
 
 LOAD_AVERAGE=$(sysctl -n vm.loadavg | awk '{print $2}')
+CORES=$(/usr/local/Cellar/coreutils/8.31/bin/nproc)
 
 WIFI_STATUS=$(ifconfig en0 | grep status | cut -c 10-)
 WIFI_SSID=$(networksetup -getairportnetwork en0 | cut -c 24-)
@@ -193,7 +194,8 @@ echo $(cat <<-EOF
     "remaining": "$BATTERY_REMAINING"
   },  
   "cpu": {
-    "loadAverage": "$LOAD_AVERAGE"
+    "loadAverage": "$LOAD_AVERAGE",
+    "cores":$CORES
   },
   "weather":"$WEATHER_STATUS",
   "uptime":"$UP_TIME",

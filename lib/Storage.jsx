@@ -6,7 +6,7 @@ const render = ({ output }) => {
 
     <div style={output.free < 50 ? { color: styles.colors.red } : null}>
     <link rel="stylesheet" type="text/css" href="/nibar/assets/fa.css"/>
-      <span >{parseInt(output.used/output.total*100)}%</span>
+      <span>D{parseInt(output.used/output.total*100)}%</span>
     </div>
   );
 };
