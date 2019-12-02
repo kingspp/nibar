@@ -10,6 +10,7 @@ import UPTime from "./lib/UPTime.jsx";
 import Mute from "./lib/Mute.jsx";
 import VPN from "./lib/VPN.jsx";
 import Weather from "./lib/Weather.jsx";
+import Caffeinate from "./lib/Caffeinate.jsx";
 import Bluetooth from "./lib/Bluetooth.jsx";
 
 import Error from "./lib/Error.jsx";
@@ -57,6 +58,7 @@ export const render = ({ output }) => {
       <Wifi output={data.wifi} />      
       <Battery output={data.battery} />
       <DateTime output={data.datetime} />
+      <Caffeinate output={data.caffeinate} />
       <Bluetooth output={data.bluetooth} />
       <Dnd output={data.dnd} />
       <Mute output={data.mute} />

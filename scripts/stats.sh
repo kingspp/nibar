@@ -167,7 +167,13 @@ UP_TIME=$(uptime | awk '{print $3" "$4}')
 
 BLUETOOTH_STATUS=$(/usr/local/Cellar/blueutil/2.5.1/bin/blueutil -p)
 
-
+CAFFEINATE_STATUS=$(ps -ef | grep caffeinate | awk '{print $2}'  ORS=" ")
+CAFFEINATE_STATUS=($CAFFEINATE_STATUS)
+if [[ ${#CAFFEINATE_STATUS[@]} -gt 1 ]];then
+	CAFFEINATE_STATUS=1
+else
+	CAFFEINATE_STATUS=0
+fi
 
 echo $(cat <<-EOF
 {
@@ -188,6 +194,7 @@ echo $(cat <<-EOF
   "mute":"$MUTE_STATUS",  
   "vpn":"$VPN_STATUS",
   "bluetooth":"$BLUETOOTH_STATUS",
+  "caffeinate":"$CAFFEINATE_STATUS",
   "storage": {
     "used": "$STORAGE_USED",
     "free": "$STORAGE_FREE",
