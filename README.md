@@ -69,3 +69,5 @@ pip3 install psutil
 
 - [ ] add support for `visible` (not `focused`) workspaces
 - [ ] add support for fan throttling
+- [ ] fix issue with wifi toggle
+- [ ] separate stats command from a single script
