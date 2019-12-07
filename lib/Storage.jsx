@@ -1,7 +1,8 @@
 import styles from "./styles.jsx";
 
 const render = ({ output }) => {
-  if (typeof output === "undefined") return null;
+	try {  
+		if (typeof output === "undefined") return null;
   return (  
 
     <div style={output.free < 50 ? { color: styles.colors.red } : null}>
@@ -9,6 +10,11 @@ const render = ({ output }) => {
       <span>D{parseInt(output.used/output.total*100)}%</span>
     </div>
   );
+  }
+  	catch(error) {
+    	return (<div style={{color:styles.colors.red}}>Error</div>)  
+  }
+  
 };
 
 export default render;

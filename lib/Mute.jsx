@@ -5,8 +5,15 @@ const style = {
 }
 
 const render = ({ output }) => {	
-  if (output == 'muted:false') return null;
+		try {  
+			if (output == 'muted:false') return null;
   return <div>🔇</div>;
+		
+  }
+  	catch(error) {
+    	return (<div style={{color:styles.colors.red}}>Error</div>)  
+  }
+  
 };
 
 export default render;

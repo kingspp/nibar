@@ -30,8 +30,8 @@ export const updateState = event => {
 };
 
 const render = ({ output }) => {
-
-  const data = output.split("#");
+  try {  
+    const data = output.split("#");
   const dwl = (speed(Math.round(data[0])));
   const upl = (speed(Math.round(data[1])));
   if (typeof output === "undefined") return null;
@@ -45,6 +45,11 @@ const render = ({ output }) => {
       </span>
     </div>
   );
+  }
+    catch(error) {
+      return (<div style={{color:styles.colors.red}}>Error</div>)  
+  }
+  
 };
 
 export default render;

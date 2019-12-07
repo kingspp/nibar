@@ -16,9 +16,9 @@ import DiskStats from "./lib/DiskStats.jsx";
 import Error from "./lib/Error.jsx";
 import parse from "./lib/parse.jsx";
 import styles from "./lib/styles.jsx";
+import { css } from "uebersicht"
 
-
-const style = {
+const style = ({
   display: "grid",
   padding: "0 12px",
   gridAutoFlow: "column",
@@ -31,9 +31,13 @@ const style = {
   fontFamily: styles.fontFamily,
   fontSize: styles.fontSize,
   lineHeight: styles.lineHeight,
-  fontWeight: styles.fontWeight
+  fontWeight: styles.fontWeight,
+    // "&:hover": {
+    //     color: "#FFFFFF"
+    // }
+
     // opacity:0.6
-};
+});
 
 export const refreshFrequency = 5000;
 
@@ -49,7 +53,7 @@ export const render = ({ output }) => {
     );
   }
   return (  
-    <div style={style}>                
+    <div style={style}>
       <Weather output={data.weather} />
       <UPTime output={data.uptime} />
       <Cpu output={data.cpu} />

@@ -29,7 +29,8 @@ export const updateState = event => {
 };
 
 const render = ({ output }) => {
-    const [pread, pwrite] = output['prev'].split("#");
+        try {  
+         const [pread, pwrite] = output['prev'].split("#");
     const [nread, nwrite] = output['next'].split("#");
     const dwl = speed((nread-pread)/1e3);
     const upl = speed((nwrite-pwrite)/1e3);
@@ -44,6 +45,11 @@ const render = ({ output }) => {
       </span>
         </div>
     );
+  }
+    catch(error) {
+        return (<div style={{color:styles.colors.red}}>Error</div>)  
+  }
+   
 };
 
 export default render;

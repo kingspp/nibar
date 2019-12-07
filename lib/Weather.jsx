@@ -2,7 +2,8 @@ import styles from "./styles.jsx";
 
 
 const render = ({output}) => {
-    var [icon, temp, wind, metric] = output.split(" ");
+    try {  
+         var [icon, temp, wind, metric] = output.split(" ");
     var tempColor = "", windColor = "";
     let t = parseInt(temp.replace("°C", ""));
     if (t < 0)
@@ -22,6 +23,11 @@ const render = ({output}) => {
     if (output == 0) return null;
     return <div>{icon}&nbsp;<span style={{color: tempColor}}>{temp}</span>&nbsp;<span
         style={{color: windColor}}>{wind}{metric}</span></div>;
+  }
+    catch(error) {
+        return (<div style={{color:styles.colors.red}}>Error</div>)  
+  }
+   
 };
 
 export default render;
