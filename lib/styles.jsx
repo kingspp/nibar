@@ -1,7 +1,7 @@
 export default {
   colors: {
     fg: "#bcbcbc",
-    dim: "#6c6c6c",
+    dim: "#8e8e8e",
     bg: "#1c1c1c",
     red: "#ff8700",
     darkred:"#BF0000",
@@ -15,3 +15,5 @@ export default {
   fontWeight: "400",
   fontFamily: "'Font Awesome 5', Inter, 'm+ 1mn', consolas"
 };
+
+// dim: "#6c6c6c",

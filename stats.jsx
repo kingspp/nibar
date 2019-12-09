@@ -20,7 +20,7 @@ import { css } from "uebersicht"
 
 const style = ({
   display: "grid",
-  padding: "0 12px",
+  padding: "0 5px",
   gridAutoFlow: "column",
   gridGap: "10px",
   position: "fixed",
