@@ -63,6 +63,7 @@ pip3 install psutil
 16. DND
 17. Caffeinate
 18. Disk IO Stats
+19. Support for notifications
 
 
 ## TODO
@@ -72,3 +73,4 @@ pip3 install psutil
 - [ ] fix issue with wifi toggle
 - [ ] separate stats command from a single script
 - [ ] on hover change the font color
+- [ ] abstract function for notification
