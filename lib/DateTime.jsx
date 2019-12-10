@@ -13,6 +13,7 @@ const render = ({ output }) => {
   );
   }
   	catch(error) {
+      console.log(error);
     	return (<div style={{color:styles.colors.red}}>Error</div>)  
   }
   

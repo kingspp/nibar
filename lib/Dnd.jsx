@@ -10,6 +10,7 @@ const render = ({ output }) => {
   return <div style={style}>􀆺</div>;
   }
   	catch(error) {
+  		console.log(error);
     	return (<div style={{color:styles.colors.red}}>Error</div>)  
   }  
   

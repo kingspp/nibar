@@ -8,6 +8,7 @@ const render = ({ msg, side }) => {
   return <div style={style}>{msg}</div>;
   }
   	catch(error) {
+  		console.log(error);
     	return (<div style={{color:styles.colors.red}}>Error</div>)  
   }
   

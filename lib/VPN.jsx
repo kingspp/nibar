@@ -11,6 +11,7 @@ try {
   return <div><i class="fa fa-circle" style={{color:style.green}}/></div>;
   }
   	catch(error) {
+  		console.log(error);
     	return (<div style={{color:styles.colors.red}}>Error</div>)  
   }	
   

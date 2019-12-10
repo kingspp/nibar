@@ -6,6 +6,7 @@ try {
     return <div><i className={"fa fa-coffee"}/></div>;	
   }
   	catch(error) {
+  		console.log(error);
     	return (<div style={{color:styles.colors.red}}>Error</div>)  
   }
    

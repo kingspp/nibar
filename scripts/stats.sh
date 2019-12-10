@@ -9,7 +9,7 @@ apmyvar1=`netstat -ibn | grep -e "en1" -m 1 | awk '{print $7}'` #  bytes in
 apmyvar3=`netstat -ibn | grep -e "en1" -m 1 | awk '{print $10}'` # bytes out
 
 
-WEATHER_STATUS=$(curl -sS "wttr.in/~Massachusetts+Worcester?format=%c%20+%t+%w&m")
+WEATHER_STATUS=$(curl -sS "wttr.in/~Massachusetts+Worcester?format=%C|%c%20+%t+%w&m")
 
 DISK_STAT_PREV=$(/Library/Frameworks/Python.framework/Versions/3.7/bin/python3 -c 'import psutil;io=psutil.disk_io_counters(nowrap=False);print(f"{io[2]}#{io[3]}")')
 

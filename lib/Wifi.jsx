@@ -8,6 +8,7 @@ const render = ({ output }) => {
   return <div>􀙇{output.ssid}</div>;
   }
   	catch(error) {
+      console.log(error);
     	return (<div style={{color:styles.colors.red}}>Error</div>)  
   }
   
