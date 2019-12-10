@@ -36,7 +36,7 @@ function setNotificationState(output){
 }
 
 
-const render = ({ output }) => {  
+const render = ({ output }) => {    
   setNotificationState(output);
   try {
     let charging = output.charging;
